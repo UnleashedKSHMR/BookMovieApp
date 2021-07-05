@@ -1,0 +1,48 @@
+.splitscreen {
+  display: flex;
+}
+
+.firstPane {
+  width: 20%;
+  float: left;
+  margin: 8px;
+}
+
+.firstPane img {
+  width: 100%;
+}
+
+.secondPane {
+  width: 60%;
+}
+
+.secondPane .row {
+  margin: 8px 0;
+}
+
+.secondPane .space {
+  margin-top: 16px;
+}
+
+.secondPane .trailer {
+  margin-top: 16px;
+  display: block;
+}
+
+.secondPane .row b {
+  margin-right: 4px;
+}
+
+.thirdPane {
+  width: 20%;
+  margin: 16px;
+}
+
+.sub-header {
+  margin: 8px 0 0 24px;
+  height: 24px;
+}
+
+.sub-header a {
+  text-decoration: none;
+}

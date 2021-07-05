@@ -12,6 +12,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const BookShow = (props) => {
   const [location, setLocation] = useState("");
@@ -36,14 +37,20 @@ const BookShow = (props) => {
   useEffect(() => {
     let dataShows = null;
 
-    fetch(props.baseUrl + "movies/" + props.match.params.id + "/shows", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Cache-Control": "no-cache",
-      },
-      body: dataShows,
-    })
+    fetch(
+      "http://localhost:8085/api/v1/" +
+        "movies/" +
+        "8d71c3b8-a293-11e8-9a3a-720006ceb890" +
+        "/shows",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Cache-Control": "no-cache",
+        },
+        body: dataShows,
+      }
+    )
       .then((response) => response.json())
       .then((response) => {
         setOriginalShows(response.shows);
@@ -193,7 +200,6 @@ const BookShow = (props) => {
 
   return (
     <div>
-      <Header baseUrl={props.baseUrl} />
       <div className="bookShow">
         <Typography className="back">
           <Link to={"/movie/" + props.match.params.id}>
@@ -285,9 +291,7 @@ const BookShow = (props) => {
             <br />
             <Typography>Unit Price: Rs. {unitPrice}</Typography>
             <br />
-            <Typography>
-              Total Price: Rs. {unitPrice * tickets}
-            </Typography>
+            <Typography>Total Price: Rs. {unitPrice * tickets}</Typography>
             <br />
             <br />
             <Button
